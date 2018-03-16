@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>相册功能</title>
+        <style>
+            .j-display {
+                text-align: center;
+            }
+            #id-img-display {
+                width: 600px;
+                height: 600px;
+            }
+            .j-nimi-img {
+                width: 100px;
+                height: 100px;
+                opacity: 0.6;
+                transition: 2s;
+                position: relative;
+            }
+            .j-nimi-img:hover {
+                opacity: 1;
+                transform: scale(1.5);
+                z-index: 1;
+            }
+            .j-minimap {
+                margin-top: 30px;
+                text-align: center;
+                border: 1px lightblue solid;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="j-display">
+            <img id="id-img-display" src="1.jpg" alt="1.jpg">
+        </div>
+        <div class="j-minimap">
+            <img class="j-nimi-img" src="1.jpg">
+            <img class="j-nimi-img" src="2.jpg">
+            <img class="j-nimi-img" src="3.jpg">
+        </div>
+        <script src='gua.js'></script>
+        <script>
+            /*
+            作业 2
+            点击切换图片的相册
+                0, 相册分上下两栏, 上面用来显示当前的大图, 下面用来显示一排缩略图
+                    当用户点击下面的缩略图的时候, 上面的大图切换为被点击的缩略图
+                1, 先写出 html, 假设有 3 张图片, 上面是一个 img 标签, 下面是 3 个 img 标签
+                2, 给下面的 img 标签绑定上 click 事件
+                3, 通过 img.src 这个属性来读取/设置 img 标签的图片, 这样就能实现功能了
+            */
+            // 取到 imgs, 全部绑定 click 事件
+            var bindEventChange = function(){
+                var imgs = es('.j-nimi-img')
+                bindAll(imgs, 'click', function(event){
+                    var self = event.target
+                    var src = self.src
+                    // 取到大图的 src, 替换
+                    var display = e('#id-img-display')
+                    display.src = src
+                })
+            }
+            var bindEvents = function(){
+                bindEventChange()
+            }
+            var __main = function(){
+                bindEvents()
+            }
+            __main()
+        </script>
+    </body>
+</html>
+<!-- <div class="gua-2">
+    <div class="gua-img-div">
+        <img class="gua-img-big" src="1.jpg">
+    </div>
+    <div class="gua-list">
+        <div class="gua-item">
+            <img class="gua-img-small" src="1.jpg" alt="">
+        </div>
+        <div class="gua-item">
+            <img class="gua-img-small" src="2.jpg" alt="">
+        </div>
+        <div class="gua-item">
+            <img class="gua-img-small" src="3.jpg" alt="">
+        </div>
+    </div>
+</div>
+<script>
+    var bindEvent2 = function() {
+        var selector = '.gua-img-small'
+        bindAll(selector, 'click', function(event){
+            log('click img')
+            // 找到自己的图片
+            var src = event.target.src
+            // 修改大图的 src
+            var big = e('.gua-img-big')
+            big.src = src
+        })
+    } -->
+

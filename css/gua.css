@@ -1,0 +1,9 @@
+/*垂直居中对齐*/
+.vertical-center {
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+}
+/*去除空格：
+    使父元素的 font-size 为 0, 为子元素设置 font-size
+*/

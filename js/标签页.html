@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>标签页效果</title>
+        <style>
+            .active {
+                background: lightblue;
+            }
+            .show {
+                display: block !important;
+            }
+            .j-page {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="gua-1">
+            <div class="gua-menu">
+                <button class="gua-menu-toggle" data-index="1">苹果</button>
+                <button class="gua-menu-toggle" data-index="2">微软</button>
+                <button class="gua-menu-toggle" data-index="3">谷歌</button>
+                <div class="gua-menu-content gua-content-1 active">
+                    苹果详情
+                </div>
+                <div class="gua-menu-content gua-content-2">
+                    微软详情
+                </div>
+                <div class="gua-menu-content gua-content-3">
+                    谷歌详情
+                </div>
+            </div>
+        </div>
+        <script>
+            var bindEventToggles = function() {
+                var selector = '.gua-menu-toggle'
+                bindAll(selector, 'click', function(event){
+                    console.log('click button')
+                    // 找到自己这个菜单的 gua-menu
+                    var p = event.target.parentElement
+                    // 查找 自己对应的 gua-menu-content
+                    var sel = '.gua-content-' + event.target.dataset.index
+                    log('78行', sel)
+                    var c = find(p, sel)
+                    // 开关 active class
+                    removeClassAll('active')
+                    toggleClass(c, 'active')
+                })
+            }
+            var bindEvents = function(){
+                bindEventToggles()
+            }
+            var __main = function(){
+                bindEvents()
+            }
+            __main()
+        </script>
+    </body>
+</html>

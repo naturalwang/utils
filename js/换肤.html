@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>homework3</title>
+        <link class="theme" rel="stylesheet" href="css/1.css">
+    </head>
+    <body>
+        <div class="homework-3">
+            <button class="theme-change" data-css="theme1.css">皮肤 1</button>
+            <button class="theme-change" data-css="theme2.css">皮肤 2</button>
+        </div>
+        <!--
+        切换皮肤（主题）功能
+            0, 不同的皮肤就是不同的 css, 换肤就是切换 css 文件, 假设我们做 2 套皮肤切换
+            1, 最简单方便的换肤方式是把两套皮肤写在 2 个 css 文件中
+            2, 页面中添加 2 个按钮用于切换 2 套皮肤
+            3, 点击按钮的时候在 head 中添加一个 link 标签(引用 css)
+                并且需要删除之前皮肤的 link 标签
+        -->
+        <script>
+            var bindEvent3 = function() {
+                var selector = '.theme-change'
+                bindAll(selector, 'click', function(event){
+                    log('click 换肤')
+                    // 找到自己的皮肤 css 文件
+                    var css = event.target.dataset.css
+                    // 删掉之前的老皮肤
+                    var link = e('.gua-theme')
+                    if (link != null) {
+                        link.remove()
+                    }
+                    // 加入现在的皮肤
+                    var head = e('head')
+                    var linkTag = `<link rel="stylesheet" href="${css}">`
+                    appendHtml(head, linkTag)
+                })
+            }
+            var bindEvents = function(){
+                bindEvent3()
+            }
+            var __main = function(){
+                bindEvents()
+            }
+            __main()
+        </script>
+    </body>
+</html>
+
