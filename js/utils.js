@@ -608,7 +608,7 @@ const cos = (angle) => {
     let s = Math.cos(radian)
     return s.toFixed(3)
 }
-const int = function(num) {
+var int = function(num) {
     return Math.floor(num)
 }
 const range = (a, b, step=1) => {
@@ -1244,4 +1244,3 @@ var test_markedSquare = function(){
     var s1 = markedSquare(s)
     log(s1)
 }
-

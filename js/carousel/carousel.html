@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Carousel</title>
+        <script src=../utils.js></script>
+        <link rel="stylesheet" type="text/css" href="carousel.css">
+    </head>
+    <body>
+        <!-- <div class="container"></div> -->
+        <!-- 轮播图 -->
+        <div class="gua-carousel">
+            <!-- data-imgs 是图片的总数 -->
+            <!-- data-active 是当前显示的图片的下标 -->
+            <div class="gua-carousel-images" data-imgs="8" data-active="0">
+                <a id="id-image-0" class="gua-carousel-image">
+                    <img src="images/carousel-img0.jpg" alt="">
+                    <div class="gua-image-shadow"></div>
+                </a>
+                <a id="id-image-1" class="gua-carousel-image gua-image-prev">
+                    <img src="images/carousel-img1.jpg" alt="">
+                    <div class="gua-image-shadow"></div>
+                </a>
+                <a id="id-image-2" class="gua-carousel-image gua-image-main">
+                    <img src="images/carousel-img2.jpg" alt="">
+                    <div class="gua-image-shadow"></div>
+                </a>
+                <a id="id-image-3" class="gua-carousel-image gua-image-next">
+                    <img src="images/carousel-img3.jpg" alt="">
+                    <div class="gua-image-shadow"></div>
+                </a>
+                <a id="id-image-4" class="gua-carousel-image">
+                    <img src="images/carousel-img4.jpg" alt="">
+                    <div class="gua-image-shadow"></div>
+                </a>
+                <a id="id-image-5" class="gua-carousel-image">
+                    <img src="images/carousel-img5.jpg" alt="">
+                    <div class="gua-image-shadow"></div>
+                </a>
+            </div>
+            <div class="gua-carousel-indicators">
+                <div id="id-indicator-0" class="gua-carousel-indicator" data-index="0"></div>
+                <div id="id-indicator-1" class="gua-carousel-indicator" data-index="1"></div>
+                <div id="id-indicator-2" class="gua-carousel-indicator" data-index="2"></div>
+                <div id="id-indicator-3" class="gua-carousel-indicator" data-index="3"></div>
+                <div id="id-indicator-4" class="gua-carousel-indicator" data-index="4"></div>
+                <div id="id-indicator-5" class="gua-carousel-indicator" data-index="5"></div>
+                <div id="id-indicator-6" class="gua-carousel-indicator" data-index="6"></div>
+                <div id="id-indicator-7" class="gua-carousel-indicator" data-index="7"></div>
+            </div>
+        </div>
+        <!-- <script src="carousel.js"></script> -->
+        <script>
+        var playNextImage() {
+            
+        }
+        var autoPlay = function() {
+            var interval = 2000
+            setInterval(function(){
+                // 每 2s 都会调用这个函数
+                playNextImage()
+            }, interval)
+        }
+
+        bindEventImages()
+        bindEventIndicators()
+        autoPlay()
+        </script>
+    </body>
+</html>
