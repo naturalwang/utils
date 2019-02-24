@@ -110,6 +110,37 @@ const arrayEqualTest = () => {
     f2 = [[1, 2, 3, [1, 2, 3]], [1, 2, 3, [1, 2, 3]]]
     ensure(!arrayEqual(f1, f2), 'test6')
 }
+
+let objectEquals = (o1, o2) => {
+    if (Object.keys(o1).length !== Object.keys(o2).length) {
+        return false
+    }
+    for (var k1 in o1) {
+        if (o1.hasOwnProperty(k1)) {
+            let v1 = o1[k1]
+            let v2 = o2[k1]
+            // log('debug k', k1)
+            // log('debug v1 v2', v1, v2)
+            if ((v1 instanceof Array) && (v2 instanceof Array)) {
+                let result = arrayEquals(v1, v2)
+                if (!result) {
+                    return false
+                }
+            } else if ((v1 instanceof Object) && (v2 instanceof Object)) {
+                let result = objectEquals(v1, v2)
+                if (!result) {
+                    return false
+                }
+            } else {
+                if (v1 !== v2) {
+                    return false
+                }
+            }
+        }
+    }
+    return true
+}
+
 // ============================================================
 // 小工具 utils -----------------------------------------------
 // ============================================================
